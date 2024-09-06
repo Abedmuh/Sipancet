@@ -1,13 +1,20 @@
+<?php require_once('../koneksi.php') ?>
+<?php
+$id = $_GET['id'];
+$koneksi = new Koneksi();
+$ambildata = $koneksi->query("SELECT * FROM penempatan");
+?>
 <?php
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+if ($ambildata->num_rows > 0) {
     header("Content-type: application/vnd-ms-excel");
     header("Content-Disposition: attachment; filename=penempatan.xls");
 
 ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,14 +38,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </tr>
             </tbody>
         </table>
-        <h2 style=" text-align: center;
-        align-items: center;
-        font-size: 24px;">Dokumen Penempatan Barang<br style="font-style: italic;">( Fasilitas Pendukung )
+        <h2 style=" text-align: center;align-items: center; font-size: 24px;">
+            Dokumen Penempatan Barang<br style="font-style: italic;">( Fasilitas Pendukung )
         </h2>
 
-        <table class="content-table" style="width:100%;margin: 10px 0;border-radius: 1px;
-    align-items: center;
-    text-align: center; border: 1px solid #000000;">
+        <table class="content-table" style="width:100%;margin: 10px 0;border-radius: 1px; align-items: center; text-align: center; border: 1px solid #000000;">
             <thead>
                 <tr style="border: 1px solid #000000;">
                     <th>Nomor</th>
@@ -56,8 +60,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr style="text-align: center;
-        align-items: center; border: 1px solid #000000;">
+                <tr style="text-align: center; align-items: center; border: 1px solid #000000;">
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -70,14 +73,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     <td>10</td>
                     <td>11</td>
                     <td>12</td>
-
                 </tr>
                 <?php
                 include "koneksi.php";
                 $urutan = 1;
-                $ambildata = mysqli_query($koneksi, "SELECT * FROM penempatan");
                 while ($tampil = mysqli_fetch_array($ambildata)) {
-                    $nomor = $tampil['nomor'];
+                    $nomor = $tampil['id'];
                     $nama_barang = $tampil['nama_barang'];
                     $tahun_perolehan = $tampil['tahun_perolehan'];
                     $grup = $tampil['grup'];
@@ -90,8 +91,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     $kode_telkom = $tampil['kode_telkom'];
                     $serial_number = $tampil['serial_number'];
                 ?>
-                    <tr style="text-align: center;
-        align-items: center; border-left: 1px solid #000000;">
+                    <tr style="text-align: center; align-items: center; border-left: 1px solid #000000;">
                         <td style="width:12%"><?php echo $nomor ?></td>
                         <td style="width:12%"><?php echo $nama_barang ?></td>
                         <td style="width:9%"><?php echo $tahun_perolehan ?></td>
@@ -104,21 +104,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                         <td style="width:8%"><?php echo $qr_code ?></td>
                         <td style="width:8%"><?php echo $kode_telkom ?></td>
                         <td style="width:8%"><?php echo $serial_number ?></td>
-
                     </tr>
-
                 <?php
                 }
                 ?>
             </tbody>
-
-
         </table>
         <br>
         <table>
             <tbody>
-                <tr style="text-align: center;
-        align-items: center">
+                <tr style="text-align: center; align-items: center">
                     <td></td>
                     <td> Yang Menerima,<br><br><br><br><br>.............................(5)</td>
                     <td></td>
@@ -129,7 +124,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     <td> ............... , .............................. (4)<br>Yang Menyerahkan,<br><br><br><br>.................................................(6)</td>
                 </tr>
             </tbody>
-
         </table>
     </body>
 
@@ -143,14 +137,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         }
 
         .content-table {
-
             margin: 10px 0;
-
             border-radius: 1px;
-
             align-items: center;
             text-align: center;
-
         }
 
         .content-table thead tr {
@@ -158,19 +148,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
             text-align: center;
             font-size: 14px;
             font-weight: 400;
-
-
         }
 
         .content-table th,
         .content-table td {
             padding: 12px 15px;
-
         }
 
         .content-table tbody tr {
             border: 3px solid #000000;
-
         }
 
         .content-table tbody tr:last-of-type {
@@ -178,14 +164,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         }
 
         .content-table tbody tr td a {
-
-
             padding: 1px;
             text-align: center;
             font-size: 14px;
             font-weight: 400;
         }
     </style>
+
 <?php
 } else {
     header("Location: index.php");

@@ -49,7 +49,6 @@ INSERT INTO `admin` (`nomor`, `nama`, `email`, `foto`) VALUES
 
 CREATE TABLE `penempatan` (
   `id` int(11) NOT NULL,
-  `no` int(11) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `tahun_perolehan` int(4) NOT NULL,
   `grup` int(10) NOT NULL,
@@ -85,7 +84,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`email`, `password`, `role`) VALUES
-('admin@indonesiaferry.co.id', '$2a$12$L2Kr2uxAkWaK1qyepoGWaON.6SoETIDXhngOX9WgoXWOYJUGWW6zy', 'admin'),
+('admin@indonesiaferry.co.id', '$2a$12$L2Kr2uxAkWaK1qyepoGWaON.6SoETIDXhngOX9WgoXWOYJUGWW6zy', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -120,7 +119,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `penempatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
