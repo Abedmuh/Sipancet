@@ -1,0 +1,17 @@
+Kekurangan :
+- pada halaman index, menu dashboard tidak aktif berwarna biru
+- kurang lengkapnya data karyawan
+- penggantian data yang langsung dari admin tanpa menunggu approval dari pihak yg berwenang
+- uploud foto tanpa crop / adjust sehingga foto terlihat gepeng
+- masih banyak syntax back end yg tidak sesuai etika coding sehingga memakan memori lebih banyak dari seharusnya
+- beberapa fitur tidak aktif (weather, search bar, settings, nottifications, etc)
+
+Pengembangan :
+- ketika berkembang menjadi sistem absen, menambah logika GPS, biometrik face id/fingerprint untuk karyawan
+- merambah ke sistem mobile
+- menambah fitur pencatatan jumlah barang dan inventory ruangan
+- menambah fitur pencatatan ruangan setiap lantai termasuk ketersediaan ruangan meeting dan fasilitasnya
+- menambah fitur detail gedung sehingga user lebih paham tentang struktur gedung dan jalur emergency
+- menambah fitur tutorial keadaan darurat termasuk penggunaan racun api, hydro, dll
+- menambah fitur agenda termasuk dress code, acara mingguan (jum'at berkebun), event yg akan datang (ulang tahun ASDP), dll
+- menambah fitur pelaporan seperti kerusakan barang (pribadi/tidak), barang hilang, kertas habis, dll
