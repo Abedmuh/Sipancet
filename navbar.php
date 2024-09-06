@@ -85,7 +85,7 @@ if ($_SESSION['role'] == 'karyawan') {
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                         <div class="d-flex align-items-center" style="gap: 15px;">
-                            <img src="<?= $url . '/' ?>karyawan/foto/profile-admin.png" alt="profile" />
+                            <img src="<?= $url . '/' ?>penempatan/foto/profile-admin.png" alt="profile" />
                             <span>
                                 <h6 class="my-1"><?= isset($currentUser) && $currentUser != null ? ucwords($currentUser['nama']) : '' ?></h6>
                                 <h6 style="font-size: 11px;" class="d-block text-muted mb-0"><?= isset($currentUser) && $currentUser != null ? $currentUser['role'] : '' ?></h6>
