@@ -7,15 +7,20 @@ $koneksi = new Koneksi();
 ?>
 
 <?php
-$nik = $nama_karyawan = $jenis_kelamin = $email = $departemen = $tanggal_bergabung = '';
+$id = $nama_barang = $tahun_perolehan = $grup = $kategori = $kelas = $sub_kelas = $nomor_urut = $kode_aset = $qr_code = $kode_telkom = $serial_number = '';
 if (isset($_POST['btn_submit'])) {
-    $nik = $_POST['nik'];
-    $nama_karyawan = $_POST['nama_karyawan'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $email = $_POST['email'];
-    $departemen = $_POST['departemen'];
-    $tanggal_bergabung = $_POST['tanggal_bergabung'];
-
+    $nama_barang = $_POST['nama_barang'];
+    $tahun_perolehan = $_POST['tahun_perolehan'];
+    $grup = $_POST['grup'];
+    $kategori = $_POST['kategori'];
+    $kelas = $_POST['kelas'];
+    $sub_kelas = $_POST['sub_kelas'];
+    $nomor_urut = $_POST['nomor_urut'];
+    $kode_aset = $_POST['kode_aset'];
+    $qr_code = $_POST['qr_code'];
+    $kode_telkom = $_POST['kode_telkom'];
+    $serial_number = $_POST['serial_number'];
+    
     // Proses upload foto
     $foto = 'default.png'; // Default foto jika tidak ada upload
 
@@ -31,11 +36,11 @@ if (isset($_POST['btn_submit'])) {
         }
     }
 
-    // Cek apakah NIK sudah ada
-    $cekNik = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE nik = '$nik'"));
+    // Cek apakah Nama Barang sudah ada
+    $ceknama = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE nama_barang = '$nama_barang'"));
 
-    if ($cekNik != null) {
-        echo "<script>Swal.fire('Gagal', 'Data dengan NIK $nik telah ada, harap periksa', 'error')</script>";
+    if ($ceknama != null) {
+        echo "<script>Swal.fire('Gagal', 'Data dengan Nama Barang $nama_barang telah ada, harap periksa', 'error')</script>";
     } else {
         // Cek email
         $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE email = '$email'"));
@@ -61,68 +66,104 @@ if (isset($_POST['btn_submit'])) {
 
 <div class="card shadow overflow-hidden">
     <div class="card-body">
-        <h4 class="card-title"><i class="fa fa-fw fa-plus"></i>&nbsp; Input Data Karyawan</h4>
+        <h4 class="card-title"><i class="fa fa-fw fa-plus"></i>&nbsp; Input Data Penempatan</h4>
         <form class="form-sample" enctype="multipart/form-data" method="POST" action="">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">NIK <span class="text-danger">*</span></label>
+                        <label class="col-sm-3 col-form-label">Nama Barang <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nik" required value="<?php echo htmlspecialchars($nik); ?>" />
+                            <input type="text" class="form-control" name="nama_barang" required value="<?php echo htmlspecialchars($nama_barang); ?>" />
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Nama <span class="text-danger">*</span></label>
+                        <label class="col-sm-3 col-form-label">Tahun Perolehan <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nama_karyawan" required value="<?php echo htmlspecialchars($nama_karyawan); ?>" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label for="jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                <option value="" selected hidden disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="Laki-laki" <?php if ($jenis_kelamin == "Laki-laki") echo "selected"; ?>>Laki-laki</option>
-                                <option value="Perempuan" <?php if ($jenis_kelamin == "Perempuan") echo "selected"; ?>>Perempuan</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Email <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" name="email" required value="<?php echo htmlspecialchars($email); ?>" />
+                            <input type="text" class="form-control" name="tahun_perolehan" required value="<?php echo htmlspecialchars($tahun_perolehan); ?>" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+            <div class="col-md-6">
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Tanggal Bergabung <span class="text-danger">*</span></label>
+                        <label class="col-sm-3 col-form-label">Grup <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" name="tanggal_bergabung" required value="<?php echo htmlspecialchars($tanggal_bergabung); ?>" />
+                            <input type="text" class="form-control" name="grup" required value="<?php echo htmlspecialchars($grup); ?>" />
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group row">
-                        <label for="departemen" class="col-sm-3 col-form-label">Departemen <span class="text-danger">*</span></label>
+                        <label class="col-sm-3 col-form-label">kategori <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="departemen" name="departemen" required>
-                                <option value="" selected hidden disabled>-- Pilih Departemen --</option>
-                                <option value="Perencanaan TI" <?php if ($departemen == "Perencanaan TI") echo "selected"; ?>>Perencanaan TI</option>
-                                <option value="Operasional TI" <?php if ($departemen == "Operasional TI") echo "selected"; ?>>Operasional TI</option>
-                                <option value="Pengembangan TI" <?php if ($departemen == "Pengembangan TI") echo "selected"; ?>>Pengembangan TI</option>
-                                <option value="Pelayanan TI" <?php if ($departemen == "Pelayanan TI") echo "selected"; ?>>Pelayanan TI</option>
-                            </select>
+                            <input type="text" class="form-control" name="kategori" required value="<?php echo htmlspecialchars($kategori); ?>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Kelas <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="kelas" required value="<?php echo htmlspecialchars($kelas); ?>" />
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Sub Kelas <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="sub_kelas" required value="<?php echo htmlspecialchars($sub_kelas); ?>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Nomor Urut <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="nomor_urut" required value="<?php echo htmlspecialchars($sub_kelas); ?>" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Kode Aset <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="kode_aset" required value="<?php echo htmlspecialchars($kode_aset); ?>" />
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">QR Code <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="qr_code" required value="<?php echo htmlspecialchars($qr_code); ?>" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Kode Telkom <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="kode_telkom" required value="<?php echo htmlspecialchars($kode_telkom); ?>" />
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Serial Number <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="serial_number" required value="<?php echo htmlspecialchars($serial_number); ?>" />
                         </div>
                     </div>
                 </div>

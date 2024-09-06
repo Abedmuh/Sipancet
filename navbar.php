@@ -14,8 +14,8 @@ if ($_SESSION['role'] == 'karyawan') {
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/logo-unri-panjang.svg" class="mr-2" alt="logo" /></a>
-            <a class="navbar-brand brand-logo-mini" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/logo-unri.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo mr-0" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" class="mr-2" alt="logo" /><p class="font-weight-light small-text mb-0 text-muted">PT ASDP Indonesia Ferry (Persero)</p></a>
+            <a class="navbar-brand brand-logo-mini" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -85,7 +85,7 @@ if ($_SESSION['role'] == 'karyawan') {
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                         <div class="d-flex align-items-center" style="gap: 15px;">
-                            <img src="<?= $url . '/' ?>karyawan/foto/profile-admin.png" alt="profile" />
+                            <img src="<?= $url . '/' ?>penempatan/foto/profile-admin.png" alt="profile" />
                             <span>
                                 <h6 class="my-1"><?= isset($currentUser) && $currentUser != null ? ucwords($currentUser['nama']) : '' ?></h6>
                                 <h6 style="font-size: 11px;" class="d-block text-muted mb-0"><?= isset($currentUser) && $currentUser != null ? $currentUser['role'] : '' ?></h6>
