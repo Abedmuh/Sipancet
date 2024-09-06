@@ -1,11 +1,11 @@
-<title>Ubah Data Karyawan</title>
+<title>Ubah Data Penempatan</title>
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
 <?php require_once('../header.php') ?>
 <?php
 $koneksi = new Koneksi();
 $id = $_GET['id'];
-$karyawan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE id = '$id'"));
+$penempatan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE id = '$id'"));
 
 if (isset($_POST['submit'])) {
     $foto = NULL;
@@ -23,15 +23,18 @@ if (isset($_POST['submit'])) {
     }
 
     $id_lama = $_POST['id_lama'];
-    $nik = $_POST['nik'];
-    $nama_karyawan = $_POST['nama_karyawan'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $departemen = $_POST['departemen'];
-    $tanggal_bergabung = $_POST['tanggal_bergabung'];
-    $email = $_POST['email'];
-    $lokasi_kerja = $_POST['lokasi_kerja'];
-    $alamat = $_POST['alamat'];
-
+    $nama_barang = $_POST['nama_barang'];
+    $tahun_perolehan = $_POST['tahun_perolehan'];
+    $grup = $_POST['grup'];
+    $kategori = $_POST['kategori'];
+    $kelas = $_POST['kelas'];
+    $sub_kelas = $_POST['sub_kelas'];
+    $nomor_urut = $_POST['nomor_urut'];
+    $kode_aset = $_POST['kode_aset'];
+    $qr_code = $_POST['qr_code'];
+    $kode_telkom = $_POST['kode_telkom'];
+    $serial_number = $_POST['serial_number'];
+   
     if ($karyawan['email'] != $email) {
         $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM login WHERE `email` = '$email'"));
 
@@ -50,7 +53,7 @@ if (isset($_POST['submit'])) {
 <?php require_once('../sidebar.php') ?>
 <div class="card shadow overflow-hidden">
     <div class="card-body">
-        <h4 class="card-title"><i class="fa fa-fw fa-edit"></i>&nbsp; Ubah Data Karyawan</h4>
+        <h4 class="card-title"><i class="fa fa-fw fa-edit"></i>&nbsp; Ubah Data Penempatan</h4>
         <?php if ($karyawan != null) : ?>
             <form class="form-sample" enctype="multipart/form-data" method="POST" action="">
                 <input type="hidden" name="id_lama" value="<?= $karyawan['id'] ?>">
