@@ -1,4 +1,4 @@
-<title>Input Data Karyawan</title>
+<title>Input Data Penempatan</title>
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
 <?php require_once('../header.php') ?>
@@ -36,27 +36,16 @@ if (isset($_POST['btn_submit'])) {
         }
     }
 
-    // Cek apakah Nama Barang sudah ada
-    $ceknama = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE nama_barang = '$nama_barang'"));
+// Cek apakah Nama Barang sudah ada
+$ceknama = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE nama_barang = '$nama_barang'"));
 
-    if ($ceknama != null) {
-        echo "<script>Swal.fire('Gagal', 'Data dengan Nama Barang $nama_barang telah ada, harap periksa', 'error')</script>";
+    $query = "INSERT INTO penempatan (nama_barang, tahun_perolehan, grup, kategori, kelas, sub_kelas, nomor_urut, kode_aset, qr_code, kode_telkom, serial_number, foto) 
+              VALUES ('$nama_barang', '$tahun_perolehan', '$grup', '$kategori', '$kelas', '$sub_kelas', '$nomor_urut', '$kode_aset', '$qr_code', '$kode_telkom', '$serial_number', '$foto')";
+    
+    if ($koneksi->query($query)) {
+        echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil ditambahkan', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
     } else {
-        // Cek email
-        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE email = '$email'"));
-
-        if ($cekEmail != null) {
-            echo "<script>Swal.fire('Gagal', 'Email $email sudah dipakai oleh akun lainnya', 'error')</script>";
-        } else {
-            $query = "INSERT INTO karyawan (nik, nama_karyawan, jenis_kelamin, email, departemen, foto, tanggal_bergabung) 
-                      VALUES ('$nik', '$nama_karyawan', '$jenis_kelamin', '$email', '$departemen', '$foto', '$tanggal_bergabung')";
-            
-            if ($koneksi->query($query)) {
-                echo "<script>Swal.fire('Berhasil', 'Data karyawan berhasil ditambahkan', 'success').then(() => window.location = 'lihat_data_karyawan.php')</script>";
-            } else {
-                echo "<script>Swal.fire('Gagal', 'Data karyawan gagal ditambahkan: " . htmlspecialchars($koneksi->error()) . "', 'error')</script>";
-            }
-        }
+        echo "<script>Swal.fire('Gagal', 'Data penempatan gagal ditambahkan: " . htmlspecialchars($koneksi->error()) . "', 'error')</script>";
     }
 }
 ?>
@@ -203,5 +192,4 @@ if (isset($_POST['btn_submit'])) {
 </div>
 
 <?php require_once('../footer.php') ?>
-<?php require_once('../file-upload.js') ?>
-<!-- <script src="../../js/file-upload.js"></script> -->
+<script src="../file-upload.js"></script>
