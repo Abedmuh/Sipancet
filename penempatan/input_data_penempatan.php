@@ -1,4 +1,4 @@
-<title>Input Data Karyawan</title>
+<title>Input Data penempatan</title>
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
 <?php require_once('../header.php') ?>
@@ -20,7 +20,7 @@ if (isset($_POST['btn_submit'])) {
     $qr_code = $_POST['qr_code'];
     $kode_telkom = $_POST['kode_telkom'];
     $serial_number = $_POST['serial_number'];
-    
+
     // Proses upload foto
     $foto = 'default.png'; // Default foto jika tidak ada upload
 
@@ -42,19 +42,19 @@ if (isset($_POST['btn_submit'])) {
     if ($ceknama != null) {
         echo "<script>Swal.fire('Gagal', 'Data dengan Nama Barang $nama_barang telah ada, harap periksa', 'error')</script>";
     } else {
-        // Cek email
-        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE email = '$email'"));
+        // Cek kode_aset
+        $cekkode_aset = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE kode_aset = '$kode_aset'"));
 
-        if ($cekEmail != null) {
-            echo "<script>Swal.fire('Gagal', 'Email $email sudah dipakai oleh akun lainnya', 'error')</script>";
+        if ($cekkode_aset != null) {
+            echo "<script>Swal.fire('Gagal', 'kode_aset $kode_aset sudah dipakai oleh akun lainnya', 'error')</script>";
         } else {
-            $query = "INSERT INTO karyawan (nik, nama_karyawan, jenis_kelamin, email, departemen, foto, tanggal_bergabung) 
-                      VALUES ('$nik', '$nama_karyawan', '$jenis_kelamin', '$email', '$departemen', '$foto', '$tanggal_bergabung')";
-            
+            $query = "INSERT INTO penempatan (nama_barang, tahun_perolehan, grup, kategori, kelas, sub_kelas, nomor_urut, kode_aset, qr_code, kode_telkom, serial_number, foto) 
+                      VALUES ('$nama_barang', '$tahun_perolehan', '$grup', '$kategori','$kelas', '$sub_kelas','$nomor_urut', '$kode_aset', '$qr_code', '$kode_telkom', '$serial_number', '$foto')";
+
             if ($koneksi->query($query)) {
-                echo "<script>Swal.fire('Berhasil', 'Data karyawan berhasil ditambahkan', 'success').then(() => window.location = 'lihat_data_karyawan.php')</script>";
+                echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil ditambahkan', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
             } else {
-                echo "<script>Swal.fire('Gagal', 'Data karyawan gagal ditambahkan: " . htmlspecialchars($koneksi->error()) . "', 'error')</script>";
+                echo "<script>Swal.fire('Gagal', 'Data penempatan gagal ditambahkan: " . htmlspecialchars($koneksi->error()) . "', 'error')</script>";
             }
         }
     }
@@ -87,7 +87,7 @@ if (isset($_POST['btn_submit'])) {
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Grup <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
@@ -105,7 +105,7 @@ if (isset($_POST['btn_submit'])) {
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Kelas <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
@@ -113,7 +113,7 @@ if (isset($_POST['btn_submit'])) {
                         </div>
                     </div>
                 </div>
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Sub Kelas <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
@@ -123,7 +123,7 @@ if (isset($_POST['btn_submit'])) {
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Nomor Urut <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
@@ -139,9 +139,9 @@ if (isset($_POST['btn_submit'])) {
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="row">
-            <div class="col-md-6">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">QR Code <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
@@ -157,8 +157,8 @@ if (isset($_POST['btn_submit'])) {
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="row">
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Serial Number <span class="text-danger">*</span></label>
@@ -190,7 +190,7 @@ if (isset($_POST['btn_submit'])) {
                         </div> -->
                     </div>
                 </div>
-                
+
             </div>
             <div class="clearfix">
                 <div class="float-right">

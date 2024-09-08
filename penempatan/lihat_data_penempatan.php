@@ -56,6 +56,9 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                         <th>
                             Gambar
                         </th>
+                        <th>
+                            Aksi
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,9 +73,9 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                             <td>
                                 <?= $penempatan['grup'] ?>
                             </td>
-                            <!-- <td>
+                            <td>
                                 <?= $penempatan['kategori'] ?>
-                            </td> -->
+                            </td>
                             <td>
                                 <?= $penempatan['kelas'] ?>
                             </td>
@@ -95,7 +98,7 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                                 <?= $penempatan['serial_number'] ?>
                             </td>
                             <td>
-                                <img src="foto/<?= $penempatan['foto'] ?>" alt="<?= $penempatan['nama_penempatan'] ?>">
+                                <img src="foto/<?= $penempatan['foto'] ?>" alt="<?= $penempatan['nama_barang'] ?>">
                             </td>
                             <td class="d-flex align-items-center" style="gap: 10px;">
                                 <a href="info_data_penempatan.php?id=<?= $penempatan['id'] ?>" title="Detail penempatan"><i class="fas fa-fw fa-info-circle"></i></a>
