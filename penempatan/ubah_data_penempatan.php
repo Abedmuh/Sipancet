@@ -34,16 +34,6 @@ if (isset($_POST['submit'])) {
     $qr_code = $_POST['qr_code'];
     $kode_telkom = $_POST['kode_telkom'];
     $serial_number = $_POST['serial_number'];
-   
-    if ($penempatan['email'] != $email) {
-        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM login WHERE `email` = '$email'"));
-
-        if ($cekEmail != null) {
-            echo "<script>Swal.fire('Gagal', 'Email sudah dipakai oleh akun lainnya', 'error')</script>";
-        } else {
-            $koneksi->query("UPDATE login SET email = '$email' WHERE email = '" . $penempatan['email'] . "'");
-        }
-    }
 
     $koneksi->query("UPDATE penempatan SET nama_barang = '$nama_barang', tahun_perolehan = '$tahun_perolehan', grup = '$grup', kategori = '$kategori', kelas = '$kelas', sub_kelas = '$sub_kelas', nomor_urut = '$nomor_urut', kode_aset = '$kode_aset', qr_code = '$qr_code', kode_telkom = '$kode_telkom', serial_number = '$serial_number'" . ($foto ? ", foto = '$foto'" : "") . " WHERE id = '$id_lama'");
     echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil diubah', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
@@ -120,8 +110,6 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                 <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Grup <span class="text-danger">*</span></label>
@@ -130,6 +118,8 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kategori <span class="text-danger">*</span></label>
@@ -138,8 +128,6 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                 <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kelas <span class="text-danger">*</span></label>
@@ -148,6 +136,8 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Sub Kelas <span class="text-danger">*</span></label>
@@ -156,8 +146,6 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                 <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nomor Urut <span class="text-danger">*</span></label>
@@ -166,6 +154,8 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kode Aset <span class="text-danger">*</span></label>
@@ -174,6 +164,34 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                    <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">QR Code <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="qr_code" class="form-control" name="qr_code" value="<?= $penempatan['qr_code'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kode Telkom <span class="text-danger"></span></label>
+                            <div class="col-sm-9">
+                                <input type="kode_telkom" class="form-control" name="kode_telkom" value="<?= $penempatan['kode_telkom'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Serial Number  <span class="text-danger"></span></label>
+                            <div class="col-sm-9">
+                                <input type="serial_number" class="form-control" name="serial_number" value="<?= $penempatan['serial_number'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Foto</label>
@@ -194,28 +212,6 @@ if (isset($_POST['submit'])) {
                         <?php if ($penempatan['foto']) : ?>
                             <img src="foto/<?= $penempatan['foto'] ?>" alt="Foto penempatan" width="100">
                         <?php endif; ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Lokasi Kerja <span class="text-danger"></span></label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="lokasi_kerja" name="lokasi_kerja">
-                                    <option value="" selected hidden disabled>-- Pilih lokasi_kerja --</option>
-                                    <option value="HO" <?= $penempatan['lokasi_kerja'] == 'HO' ? 'selected' : '' ?>>HO</option>
-                                    <option value="Cabang" <?= $penempatan['lokasi_kerja'] == 'Cabang' ? 'selected' : '' ?>>Cabang</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Alamat <span class="text-danger"></span></label>
-                            <div class="col-sm-9">
-                                <input type="alamat" class="form-control" name="alamat" value="<?= $penempatan['alamat'] ?>" />
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="clearfix">
