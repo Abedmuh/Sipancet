@@ -91,7 +91,10 @@ if ($ambildata->num_rows > 0) {
                         <td style="width:8%"><?php echo $qr_code ?></td>
                         <td style="width:8%"><?php echo $kode_telkom ?></td>
                         <td style="width:8%"><?php echo $serial_number ?></td>
-                        <td style="width:8%"><?php echo $foto ?></td>
+                        <td style="width:100px">
+                            <img src="http://localhost:8080/Sipancet/penempatan/foto/<?= $tampil['foto'] ?>" alt="<?= $tampil['nama_barang'] ?>" style="max-width: 100px; max-height: 100px;"> 
+                        </td>
+                        <!-- <td style="width:8%"><img src="foto/<?= $penempatan['foto'] ?>" alt="<?= $penempatan['nama_barang'] ?>"></td> -->
                     </tr>
                 <?php
                 }

@@ -4,6 +4,8 @@ require '../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
 
 $id = $_GET['id'] ?? null; 
 
@@ -43,6 +45,38 @@ if ($ambildata->num_rows > 0) {
 
     while ($tampil = mysqli_fetch_assoc($ambildata)) { // Use mysqli_fetch_assoc for better readability
         $sheet->fromArray($tampil, null, 'A' . $row); // Efficiently write data to the sheet
+        $imageName = $tampil['foto'];
+        $imagePath = 'http://localhost:8080/Sipancet/penempatan/foto/'.$imageName;
+
+        // Download the image from the URL
+        $customTempDir = 'C:\AppC\laragon\www\Sipancet\penempatan\tmp'; // Custom path
+        $tempImagePath = $customTempDir . $imageName; // Use custom path
+        $imageData = @file_get_contents($imagePath);
+
+        if ($imageData === FALSE) {
+            $sheet->setCellValue('M' . $row, 'Image not found: ' . $imagePath);
+        } else {
+            $writeSuccess = @file_put_contents($tempImagePath, $imageData);
+
+            if ($writeSuccess === FALSE) {
+                $sheet->setCellValue('M' . $row, 'Error saving image.');
+            } else {
+                $drawing = new Drawing();
+                $drawing->setName('Image');
+                $drawing->setDescription('Image');
+                $drawing->setPath($tempImagePath);
+                $drawing->setHeight(200); // Resize image height (adjust as needed)
+                $drawing->setCoordinates('M' . $row); // Place image in the 'foto' column
+                $drawing->setOffsetX(10); // Adjust X offset as needed
+                $drawing->setOffsetY(10); // Adjust Y offset as needed
+                $drawing->setWorksheet($sheet);
+
+                // Set row height to match image height (convert from pixels to points)
+                $rowHeight = $drawing->getHeight() * 0.75; // Convert pixels to points
+                $sheet->getRowDimension($row)->setRowHeight($rowHeight);
+            }
+        }
+
         $row++;
     }
 
