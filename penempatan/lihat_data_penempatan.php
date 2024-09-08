@@ -13,7 +13,10 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
 <div class="card shadow overflow-hidden">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h4 class="card-title mb-0">Data Penempatan</h4>
-        <a href="input_data_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Tambah</a>
+        <div class="d-inline-flex">
+            <a href="input_data_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Tambah</a>
+            <a href="export_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Export</a>
+        </div>            
     </div>
     <div class="card-body">
         <div class="table-responsive">
