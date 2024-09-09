@@ -204,4 +204,4 @@ if (isset($_POST['btn_submit'])) {
 </div>
 
 <?php require_once('../footer.php') ?>
-<?php require_once('../file-upload.js') ?>
+<script src='../file-upload.js'> </script>
