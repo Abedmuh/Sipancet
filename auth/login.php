@@ -74,7 +74,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
                             </div>
                             <div class="text-center font-weight-light">
                                 <h3>Data Aset Inventaris</h3>
-                                <h6>Indonesia Ferry (Persero)</h6>
+                                <h6>PT ASDP Indonesia Ferry (Persero)</h6>
                             </div>
                             <form method="POST" action="" class="pt-3">
                                 <div class="form-group">
