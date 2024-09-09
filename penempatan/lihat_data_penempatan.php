@@ -16,13 +16,17 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
 <div class="card shadow overflow-hidden">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h4 class="card-title mb-0">Data Penempatan</h4>
-        <a href="input_data_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Tambah</a>
+        <div class="d-inline-flex">
+            <a href="input_data_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Tambah</a>
+            <a href="export_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Export</a>
+        </div>            
     </div>
     <div class="card-body">
             <div class="table-responsive">
             <table id="penempatanTable" class="table table-striped">
                 <thead>
                     <tr>
+
                         <th>Nama Barang</th>
                         <th>Tahun Perolehan</th>
                         <th>Grup</th>
@@ -41,6 +45,7 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                 <tbody>
                     <?php foreach ($listPenempatan as $penempatan) : ?>
                         <tr>
+
                             <td><?= $penempatan['nama_barang'] ?></td>
                             <td><?= $penempatan['tahun_perolehan'] ?></td>
                             <td><?= $penempatan['grup'] ?></td>
@@ -53,6 +58,7 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                             <td><?= $penempatan['kode_telkom'] ?></td>
                             <td><?= $penempatan['serial_number'] ?></td>
                             <td><img src="foto/<?= $penempatan['foto'] ?>" alt="<?= $penempatan['foto'] ?>" width="75"></td>
+
                             <td class="d-flex align-items-center" style="gap: 10px;">
                                 <a href="info_data_penempatan.php?id=<?= $penempatan['id'] ?>" title="Detail penempatan"><i class="fas fa-fw fa-info-circle"></i></a>
                                 <a href="ubah_data_penempatan.php?id=<?= $penempatan['id'] ?>" title="Ubah"><i class="far fa-fw fa-edit"></i></a>
