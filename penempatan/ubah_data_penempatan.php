@@ -1,11 +1,11 @@
-<title>Ubah Data Karyawan</title>
+<title>Ubah Data Penempatan</title>
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
 <?php require_once('../header.php') ?>
 <?php
 $koneksi = new Koneksi();
 $id = $_GET['id'];
-$karyawan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM karyawan WHERE id = '$id'"));
+$penempatan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM penempatan WHERE id = '$id'"));
 
 if (isset($_POST['submit'])) {
     $foto = NULL;
@@ -23,51 +23,98 @@ if (isset($_POST['submit'])) {
     }
 
     $id_lama = $_POST['id_lama'];
-    $nik = $_POST['nik'];
-    $nama_karyawan = $_POST['nama_karyawan'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $departemen = $_POST['departemen'];
-    $tanggal_bergabung = $_POST['tanggal_bergabung'];
-    $email = $_POST['email'];
-    $lokasi_kerja = $_POST['lokasi_kerja'];
-    $alamat = $_POST['alamat'];
+    $nama_barang = $_POST['nama_barang'];
+    $tahun_perolehan = $_POST['tahun_perolehan'];
+    $grup = $_POST['grup'];
+    $kategori = $_POST['kategori'];
+    $kelas = $_POST['kelas'];
+    $sub_kelas = $_POST['sub_kelas'];
+    $nomor_urut = $_POST['nomor_urut'];
+    $kode_aset = $_POST['kode_aset'];
+    $qr_code = $_POST['qr_code'];
+    $kode_telkom = $_POST['kode_telkom'];
+    $serial_number = $_POST['serial_number'];
 
-    if ($karyawan['email'] != $email) {
-        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM login WHERE `email` = '$email'"));
-
-        if ($cekEmail != null) {
-            echo "<script>Swal.fire('Gagal', 'Email sudah dipakai oleh akun lainnya', 'error')</script>";
-        } else {
-            $koneksi->query("UPDATE login SET email = '$email' WHERE email = '" . $karyawan['email'] . "'");
-        }
-    }
-
-    $koneksi->query("UPDATE karyawan SET nik = '$nik', nama_karyawan = '$nama_karyawan', jenis_kelamin = '$jenis_kelamin', email = '$email', departemen = '$departemen', tanggal_bergabung = '$tanggal_bergabung', lokasi_kerja = '$lokasi_kerja', alamat = '$alamat'" . ($foto ? ", foto = '$foto'" : "") . " WHERE id = '$id_lama'");
-    echo "<script>Swal.fire('Berhasil', 'Data karyawan berhasil diubah', 'success').then(() => window.location = 'lihat_data_karyawan.php')</script>";
+    $koneksi->query("UPDATE penempatan SET nama_barang = '$nama_barang', tahun_perolehan = '$tahun_perolehan', grup = '$grup', kategori = '$kategori', kelas = '$kelas', sub_kelas = '$sub_kelas', nomor_urut = '$nomor_urut', kode_aset = '$kode_aset', qr_code = '$qr_code', kode_telkom = '$kode_telkom', serial_number = '$serial_number'" . ($foto ? ", foto = '$foto'" : "") . " WHERE id = '$id_lama'");
+    echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil diubah', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
 }
 ?>
 <?php require_once('../navbar.php') ?>
 <?php require_once('../sidebar.php') ?>
 <div class="card shadow overflow-hidden">
     <div class="card-body">
-        <h4 class="card-title"><i class="fa fa-fw fa-edit"></i>&nbsp; Ubah Data Karyawan</h4>
-        <?php if ($karyawan != null) : ?>
+        <h4 class="card-title"><i class="fa fa-fw fa-edit"></i>&nbsp; Ubah Data Penempatan</h4>
+        <?php if ($penempatan != null) : ?>
             <form class="form-sample" enctype="multipart/form-data" method="POST" action="">
-                <input type="hidden" name="id_lama" value="<?= $karyawan['id'] ?>">
+                <input type="hidden" name="id_lama" value="<?= $penempatan['id'] ?>">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">NIK <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Nama Barang <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="nik" value="<?= $karyawan['nik'] ?>" />
+                                <input type="text" class="form-control" name="nama_barang" value="<?= $penempatan['nama_barang'] ?>" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Nama <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Tahun Perolehan <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="nama_karyawan" value="<?= $karyawan['nama_karyawan'] ?>" />
+                                <input type="text" class="form-control" name="tahun_perolehan" value="<?= $penempatan['tahun_perolehan'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Grup <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="grup" value="<?= $penempatan['grup'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kategori <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="kategori" class="form-control" name="kategori" value="<?= $penempatan['kategori'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kelas <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="kelas" class="form-control" name="kelas" value="<?= $penempatan['kelas'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Sub Kelas <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="sub_kelas" class="form-control" name="sub_kelas" value="<?= $penempatan['sub_kelas'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Tahun Perolehan <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="tahun_perolehan" value="<?= $penempatan['tahun_perolehan'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Grup <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="grup" value="<?= $penempatan['grup'] ?>" />
                             </div>
                         </div>
                     </div>
@@ -75,21 +122,17 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label for="jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Kategori <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                    <option value="" selected hidden disabled>-- Pilih Jenis Kelamin --</option>
-                                    <option value="Laki-Laki" <?= $karyawan['jenis_kelamin'] == 'Laki-Laki' ? 'selected' : '' ?>>Laki-Laki</option>
-                                    <option value="Perempuan" <?= $karyawan['jenis_kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
-                                </select>
+                                <input type="kategori" class="form-control" name="kategori" value="<?= $penempatan['kategori'] ?>" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Email <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Kelas <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" name="email" value="<?= $karyawan['email'] ?>" />
+                                <input type="kelas" class="form-control" name="kelas" value="<?= $penempatan['kelas'] ?>" />
                             </div>
                         </div>
                     </div>
@@ -97,23 +140,53 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Tanggal Bergabung <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Sub Kelas <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="date" class="form-control" name="tanggal_bergabung" value="<?= $karyawan['tanggal_bergabung'] ?>" />
+                                <input type="sub_kelas" class="form-control" name="sub_kelas" value="<?= $penempatan['sub_kelas'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nomor Urut <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="nomor_urut" class="form-control" name="nomor_urut" value="<?= $penempatan['nomor_urut'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kode Aset <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="kode_aset" class="form-control" name="kode_aset" value="<?= $penempatan['kode_aset'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">QR Code <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="qr_code" class="form-control" name="qr_code" value="<?= $penempatan['qr_code'] ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kode Telkom <span class="text-danger"></span></label>
+                            <div class="col-sm-9">
+                                <input type="kode_telkom" class="form-control" name="kode_telkom" value="<?= $penempatan['kode_telkom'] ?>" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Departemen <span class="text-danger">*</span></label>
+                            <label class="col-sm-3 col-form-label">Serial Number  <span class="text-danger"></span></label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="departemen" name="departemen" required>
-                                    <option value="" selected hidden disabled>-- Pilih Departemen --</option>
-                                    <option value="Perencanaan TI" <?= $karyawan['departemen'] == 'Perencanaan TI' ? 'selected' : '' ?>>Perencanaan TI</option>
-                                    <option value="Operasional TI" <?= $karyawan['departemen'] == 'Operasional TI' ? 'selected' : '' ?>>Operasional TI</option>
-                                    <option value="Pengembangan TI" <?= $karyawan['departemen'] == 'Pengembangan TI' ? 'selected' : '' ?>>Pengembangan TI</option>
-                                    <option value="Pelayanan TI" <?= $karyawan['departemen'] == 'Pelayanan TI' ? 'selected' : '' ?>>Pelayanan TI</option>
-                                </select>
+                                <input type="serial_number" class="form-control" name="serial_number" value="<?= $penempatan['serial_number'] ?>" />
                             </div>
                         </div>
                     </div>
@@ -136,31 +209,9 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <?php if ($karyawan['foto']) : ?>
-                            <img src="foto/<?= $karyawan['foto'] ?>" alt="Foto Karyawan" width="100">
+                        <?php if ($penempatan['foto']) : ?>
+                            <img src="foto/<?= $penempatan['foto'] ?>" alt="Foto penempatan" width="100">
                         <?php endif; ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Lokasi Kerja <span class="text-danger"></span></label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="lokasi_kerja" name="lokasi_kerja">
-                                    <option value="" selected hidden disabled>-- Pilih lokasi_kerja --</option>
-                                    <option value="HO" <?= $karyawan['lokasi_kerja'] == 'HO' ? 'selected' : '' ?>>HO</option>
-                                    <option value="Cabang" <?= $karyawan['lokasi_kerja'] == 'Cabang' ? 'selected' : '' ?>>Cabang</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Alamat <span class="text-danger"></span></label>
-                            <div class="col-sm-9">
-                                <input type="alamat" class="form-control" name="alamat" value="<?= $karyawan['alamat'] ?>" />
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="clearfix">
@@ -177,7 +228,7 @@ if (isset($_POST['submit'])) {
             </script>
             <?php else : ?>
             <div class="alert alert-danger" role="alert">
-                Data karyawan tidak ditemukan.
+                Data penempatan tidak ditemukan.
             </div>
             <div class="clearfix">
                     <div class="float-right">

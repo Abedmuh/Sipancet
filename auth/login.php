@@ -69,12 +69,12 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
                 <div class="row w-100 mx-0">
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                            <div class="brand-logo">
-                                <img src="<?= $url . '/' ?>template/images/logo-unri-panjang.svg" alt="logo">
+                            <div class="brand-logo" style="text-align: center; margin-bottom: 20px;">
+                                <img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" alt="logo">
                             </div>
                             <div class="text-center font-weight-light">
-                                <h3>Data Karyawan ASDP</h3>
-                                <h6>Indonesia Ferry (Persero)</h6>
+                                <h3>Data Aset Inventaris</h3>
+                                <h6>PT ASDP Indonesia Ferry (Persero)</h6>
                             </div>
                             <form method="POST" action="" class="pt-3">
                                 <div class="form-group">

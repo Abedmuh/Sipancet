@@ -1,4 +1,5 @@
-<title>Input Data penempatan</title>
+<title>Input Data Penempatan</title>
+
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
 <?php require_once('../header.php') ?>
@@ -204,4 +205,3 @@ if (isset($_POST['btn_submit'])) {
 
 <?php require_once('../footer.php') ?>
 <?php require_once('../file-upload.js') ?>
-<!-- <script src="../../js/file-upload.js"></script> -->
