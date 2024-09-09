@@ -14,8 +14,8 @@ if ($_SESSION['role'] == 'karyawan') {
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-0" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" class="mr-2" alt="logo" /><p class="font-weight-light small-text mb-0 text-muted">PT ASDP Indonesia Ferry (Persero)</p></a>
-            <a class="navbar-brand brand-logo-mini" href="<?= $url ?>"><img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" alt="logo" /></a>
+            <a class="navbar-brand brand-logo mr-0" href="<?= $url ?>"><img src="<?= $url . '/' ?>aset/Asdp-Logo.png" class="mr-2" alt="logo" /><p class="font-weight-light small-text mb-0 text-muted">PT ASDP Indonesia Ferry (Persero)</p></a>
+            <a class="navbar-brand brand-logo-mini" href="<?= $url ?>"><img src="<?= $url . '/' ?>aset/Asdp-Logo.png" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

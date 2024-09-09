@@ -22,7 +22,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     <!-- inject:css -->
     <link rel="stylesheet" href="<?= $url . '/' ?>template/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?= $url . '/' ?>template/images/favicon.png" />
+    <link rel="shortcut icon" href="<?= $url . '/' ?>aset/favicon.png" />
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
     <script src="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
 </head>
@@ -70,7 +70,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo" style="text-align: center; margin-bottom: 20px;">
-                                <img src="<?= $url . '/' ?>template/images/Asdp-Logo.png" alt="logo">
+                                <img src="<?= $url . '/' ?>aset/Asdp-Logo.png" alt="logo">
                             </div>
                             <div class="text-center font-weight-light">
                                 <h3>Data Aset Inventaris</h3>
