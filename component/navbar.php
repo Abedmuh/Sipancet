@@ -1,13 +1,13 @@
 <?php
-include_once('koneksi.php');
+include_once(__DIR__ . '/../koneksi.php');
 $connection = new Koneksi();
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
 
 if ($_SESSION['jabatan'] == 'karyawan') {
-    $currentUser = $connection->fetch_one_assoc($connection->query("SELECT nama, 'jabatan' AS `role` FROM `users` WHERE `email` = '" . $_SESSION['email'] . "'"));
+    $currentUser = $connection->fetch_one_assoc($connection->query("SELECT nama, jabatan AS `role` FROM `users` WHERE `email` = '" . $_SESSION['email'] . "'"));
 } else if ($_SESSION['jabatan'] == 'admin') {
-    $currentUser = $connection->fetch_one_assoc($connection->query("SELECT nama, 'jabatan' AS `role` FROM `users` WHERE `email` = '" . $_SESSION['email'] . "'"));
+    $currentUser = $connection->fetch_one_assoc($connection->query("SELECT nama, jabatan AS `role` FROM `users` WHERE `email` = '" . $_SESSION['email'] . "'"));
 }
 ?>
 <div class="container-scroller">
