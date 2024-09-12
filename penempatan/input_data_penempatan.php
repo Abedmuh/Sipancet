@@ -2,7 +2,9 @@
 
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
-<?php require_once('../header.php') ?>
+<?php require_once('../component/header.php') ?>
+<?php require_once('../component/navbar.php') ?>
+<?php require_once('../component/sidebar.php') ?>
 <?php
 $koneksi = new Koneksi();
 ?>
@@ -61,9 +63,6 @@ if (isset($_POST['btn_submit'])) {
     }
 }
 ?>
-
-<?php require_once('../navbar.php') ?>
-<?php require_once('../sidebar.php') ?>
 
 <div class="card shadow overflow-hidden">
     <div class="card-body">
@@ -203,5 +202,5 @@ if (isset($_POST['btn_submit'])) {
     </div>
 </div>
 
-<?php require_once('../footer.php') ?>
+<?php require_once('../component/footer.php') ?>
 <script src='../file-upload.js'> </script>

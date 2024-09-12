@@ -15,7 +15,7 @@ if (substr($url_sekarang, strlen($url_sekarang) - 1, 1) == '/') {
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <?php if ($_SESSION['role'] == 'admin') : ?>
+        <?php if ($_SESSION['jabatan'] == 'admin') : ?>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                     <i class="icon-head menu-icon"></i>

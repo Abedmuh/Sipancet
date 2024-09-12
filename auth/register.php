@@ -8,22 +8,32 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
 <html lang="en">
 
 <head>
-    <!-- required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Buat Akun</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/feather/feather.css">
-    <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="<?= $url . '/' ?>template/css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="<?= $url . '/' ?>template/images/favicon.png" />
-    <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
-    <script src="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+  <!-- required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Buat Akun</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/feather/feather.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>template/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="<?= $url . '/' ?>template/images/favicon.png" />
+  <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
+  <script src="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
 </head>
 
 <body>
+  <?php
+  $koneksi = new Koneksi();
+  if (isset($_POST['btn_submit'])) {
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
+    
+  }
+  ?>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center auth px-0">
@@ -38,14 +48,13 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
               </div>
               <form class="pt-3">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" id="inputUsername1" placeholder="Username">
+                  <input type="text" class="form-control form-control-lg" id="inputUsername1" placeholder="Username" name="username">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="inputEmail1" placeholder="Email">
+                  <input type="email" class="form-control form-control-lg" id="inputEmail1" placeholder="Email" name="email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="inputPassword1"
-                    placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" id="inputPassword1" name="password" placeholder="Password">
                 </div>
                 <div class="mb-4">
                   <div class="form-check">

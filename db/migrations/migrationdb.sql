@@ -16,31 +16,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `asdp`
---
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `admin`
---
-
-CREATE TABLE `admin` (
-  `nomor` bigint(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `foto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `admin`
---
-
-INSERT INTO `admin` (`nomor`, `nama`, `email`, `foto`) VALUES
-(1, 'Saya Admin', 'admin@indonesiaferry.co.id', 'default.png');
-
 -- --------------------------------------------------------
 
 --
@@ -48,7 +23,7 @@ INSERT INTO `admin` (`nomor`, `nama`, `email`, `foto`) VALUES
 --
 
 CREATE TABLE `penempatan` (
-  `id` int(11) NOT NULL,
+  `id` varchar(36) NOT NULL DEFAULT (UUID()),
   `nama_barang` varchar(255) NOT NULL,
   `tahun_perolehan` int(11) NOT NULL,
   `grup` int(10) NOT NULL,
@@ -63,67 +38,26 @@ CREATE TABLE `penempatan` (
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `penempatan`
---
-
 INSERT INTO `penempatan` (`nama_barang`, `tahun_perolehan`, `grup`, `kategori`, `kelas`, `sub_kelas`, `nomor_urut`, `kode_aset`, `qr_code`, `kode_telkom`, `serial_number`, `foto`) VALUES
 ('Hub / Switch Loket 5/8 Port', 2019, 1, 2, 1, 3, 4, 'TI.2019.02.01.45.000528', 'Hub / Switch Loket 16 Port/TI.2019.02.01.45.000612', 'ASDP01-0924-051300003', 'awsdwa', 'asdp.png' );
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `login`
---
-
-CREATE TABLE `login` (
+CREATE TABLE `users` (
+  `id` varchar(255) NOT NULL DEFAULT (UUID()),
   `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` enum('admin','penempatan') NOT NULL
+  `nama` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `login`
---
+INSERT INTO `users` (`email`, `nama`, `password`, `jabatan`, `foto`) VALUES
+('admin@asdp.id', 'setya', '$2a$12$L2Kr2uxAkWaK1qyepoGWaON.6SoETIDXhngOX9WgoXWOYJUGWW6zy', 'admin', 'default.png');
 
-INSERT INTO `login` (`email`, `password`, `role`) VALUES
-('admin@indonesiaferry.co.id', '$2a$12$L2Kr2uxAkWaK1qyepoGWaON.6SoETIDXhngOX9WgoXWOYJUGWW6zy', 'admin');
-
---
--- Indexes for dumped tables
---
-
---
--- Indeks untuk tabel `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`nomor`),
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- Indeks untuk tabel `penempatan`
---
 ALTER TABLE `penempatan`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_aset` (`kode_aset`);
 
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `admin`
---
-ALTER TABLE `admin`
-  MODIFY `nomor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `penempatan`
---
-ALTER TABLE `penempatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

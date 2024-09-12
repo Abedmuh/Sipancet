@@ -30,22 +30,22 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     if (isset($_POST['btn_submit'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM `login` WHERE `email` = '$email'"));
+        $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM `users` WHERE `email` = '$email'"));
 
         if ($cekEmail != null) {
             if (password_verify($password, $cekEmail['password'])) {
                 $_SESSION['login'] = true;
-                $_SESSION['role'] = $cekEmail['role'];
+                $_SESSION['jabatan'] = $cekEmail['jabatan'];
                 $_SESSION['email'] = $cekEmail['email'];
 
-                if ($cekEmail['role'] == 'karyawan') {
-                    $karyawan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM `karyawan` WHERE `email` = '$email'"));
-                    $_SESSION['nik'] = $karyawan['nik'];
+                if ($cekEmail['jabatan'] == 'karyawan') {
+                    $karyawan = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM `users` WHERE `email` = '$email'"));
+                    $_SESSION['nik'] = $cekEmail['nik'];
                     header('Location: ../');
                     die;
-                } else if ($cekEmail['role'] == 'admin') {
+                } else if ($cekEmail['jabatan'] == 'admin') {
                     // Tidak ada tabel admin, gunakan login tabel
-                    $_SESSION['role'] = 'admin';
+                    $_SESSION['jabatan'] = 'admin';
                     header('Location: ../');
                     die;
                 }

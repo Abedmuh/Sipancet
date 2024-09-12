@@ -1,12 +1,12 @@
 <title>Lihat Data Penempatan</title>
+<?php require_once('../koneksi.php') ?>
 <?php require_once('../middleware_admin.php') ?>
-<?php require_once('../header.php') ?>
+<?php require_once('../component/header.php') ?>
+<?php require_once('../component/navbar.php') ?>
+<?php require_once('../component/sidebar.php') ?>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<?php require_once('../navbar.php') ?>
-<?php require_once('../sidebar.php') ?>
-<?php require_once('../koneksi.php') ?>
 <?php
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
@@ -105,4 +105,4 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
     });
     <?php endif; ?>
 </script>
-<?php require_once('../footer.php') ?>
+<?php require_once('../component/footer.php') ?>
