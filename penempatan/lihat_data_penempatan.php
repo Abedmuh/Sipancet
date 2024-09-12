@@ -19,6 +19,7 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
         <div class="d-inline-flex">
             <a href="input_data_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center"><i class="fa fa-fw fa-plus"></i>&nbsp; Tambah</a>
             <a href="export_penempatan.php" class="btn btn-primary btn-sm d-flex align-items-center ml-2"><i class="fa fa-fw fa-download"></i>&nbsp; Export</a>
+            <a href="export_pdf.php" class="btn btn-primary btn-sm d-flex align-items-center ml-2"><i class="fa fa-fw fa-download"></i>&nbsp; PDF</a>
         </div>            
     </div>
     <div class="card-body">

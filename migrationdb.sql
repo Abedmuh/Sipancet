@@ -50,22 +50,25 @@ INSERT INTO `admin` (`nomor`, `nama`, `email`, `foto`) VALUES
 CREATE TABLE `penempatan` (
   `id` int(11) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
-  `tahun_perolehan` int(4) NOT NULL,
+  `tahun_perolehan` int(11) NOT NULL,
   `grup` int(10) NOT NULL,
   `kategori` int(10) NOT NULL,
   `kelas` int(10) NOT NULL,
   `sub_kelas` int(10) NOT NULL,
-  `nomor_urut` varchar(255) NOT NULL,
+  `nomor_urut` int(10) NOT NULL,
   `kode_aset` varchar(255) NOT NULL,
   `qr_code` varchar(255) NOT NULL,
   `kode_telkom` varchar(255) NOT NULL,
-  `serial_number` int(255) NOT NULL,
+  `serial_number` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `penempatan`
 --
+
+INSERT INTO `penempatan` (`nama_barang`, `tahun_perolehan`, `grup`, `kategori`, `kelas`, `sub_kelas`, `nomor_urut`, `kode_aset`, `qr_code`, `kode_telkom`, `serial_number`, `foto`) VALUES
+('Hub / Switch Loket 5/8 Port', 2019, 1, 2, 1, 3, 4, 'TI.2019.02.01.45.000528', 'Hub / Switch Loket 16 Port/TI.2019.02.01.45.000612', 'ASDP01-0924-051300003', 'awsdwa', 'asdp.png' );
 
 -- --------------------------------------------------------
 
