@@ -1,9 +1,9 @@
 <title>ASDP</title>
 
 <?php require_once('middleware_all.php') ?>
-<?php require_once('header.php') ?>
-<?php require_once('navbar.php') ?>
-<?php require_once('sidebar.php') ?>
+<?php require_once('component/header.php') ?>
+<?php require_once('component/navbar.php') ?>
+<?php require_once('component/sidebar.php') ?>
 <?php require_once('koneksi.php') ?>
 
 
@@ -60,4 +60,4 @@ $jumlah_barang = $row['jumlah_barang'];
         </div>
     </div>
 </div>
-<?php require('footer.php') ?>
+<?php require('component/footer.php') ?>
