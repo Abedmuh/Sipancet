@@ -30,8 +30,21 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
-    
+    $cekEmail = $koneksi->fetch_one_assoc($koneksi->query("SELECT * FROM `users` WHERE `email` = '$email'"));
+
+    if ($cekEmail != null) {
+      echo "<script>Swal.fire('Gagal', 'Email sudah terdaftar!', 'error')</script>";
+    } else {
+      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      $insertQuery = "INSERT INTO `users` (`email`, `nama`, `password`, `jabatan`, `foto`) VALUES ('$email', '$username', '$hashedPassword', 'admin', 'default.png')";
+      $insertResult = $koneksi->query($insertQuery);
+      if ($insertResult) {
+        header('Location: login.php');
+        die;
+      } else {
+        echo "<script>Swal.fire('Gagal', 'Terjadi kesalahan saat mendaftar. Coba lagi.', 'error')</script>";
+      }
+    }
   }
   ?>
   <div class="container-scroller">
@@ -40,13 +53,17 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="<?= $url . '/' ?>template/images/logo-unri-panjang.svg" alt="logo">
+              <div class="brand-logo" style="text-align: center; margin-bottom: 20px;">
+                <img src="<?= $url . '/' ?>aset/Asdp-Logo.png" alt="logo">
+              </div>
+              <div class="text-center font-weight-light">
+                <h3>Data Aset Inventaris</h3>
+                <h6>PT ASDP Indonesia Ferry (Persero)</h6>
               </div>
               <div class="text-center mt-4 font-weight-light">
                 <h4>Buat Akun</h4>
               </div>
-              <form class="pt-3">
+              <form class="pt-3" method="POST">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-lg" id="inputUsername1" placeholder="Username" name="username">
                 </div>
@@ -65,8 +82,9 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                    href="login.php">SIGN UP</a>
+                  <button name="btn_submit" type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                    Register Account
+                  </button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Sudah punya akun? <a href="login.php" class="text-primary">Login</a>
