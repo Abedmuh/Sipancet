@@ -13,6 +13,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login ASDP</title>
     <!-- plugins:css -->
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/feather/feather.css">
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/css/vendor.bundle.base.css">
@@ -25,6 +26,16 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     <link rel="shortcut icon" href="<?= $url . '/' ?>template/images/favicon.png" />
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
     <script src="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+=======
+    <link rel="stylesheet" href="<?= $url . '/' ?>vendors/feather/feather.css">
+    <link rel="stylesheet" href="<?= $url . '/' ?>vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="<?= $url . '/' ?>vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= $url . '/' ?>css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="<?= $url . '/' ?>aset/favicon.png" />
+    <link rel="stylesheet" href="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
+    <script src="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -109,16 +120,16 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="<?= $url . '/' ?>/template/vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?= $url . '/' ?>/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="<?= $url . '/' ?>/template/js/off-canvas.js"></script>
-    <script src="<?= $url . '/' ?>/template/js/hoverable-collapse.js"></script>
-    <script src="<?= $url . '/' ?>/template/js/template.js"></script>
-    <script src="<?= $url . '/' ?>/template/js/settings.js"></script>
-    <script src="<?= $url . '/' ?>/template/js/todolist.js"></script>
+    <script src="<?= $url . '/' ?>/js/off-canvas.js"></script>
+    <script src="<?= $url . '/' ?>/js/hoverable-collapse.js"></script>
+    <script src="<?= $url . '/' ?>/js/template.js"></script>
+    <script src="<?= $url . '/' ?>/js/settings.js"></script>
+    <script src="<?= $url . '/' ?>/js/todolist.js"></script>
     <!-- endinject -->
 </body>
 

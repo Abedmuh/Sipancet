@@ -8,6 +8,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
 <html lang="en">
 
 <head>
+<<<<<<< Updated upstream
     <!-- required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,6 +26,21 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     <link rel="shortcut icon" href="<?= $url . '/' ?>template/images/favicon.png" />
     <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
     <script src="<?= $url . '/' ?>template/vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+=======
+  <!-- required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Buat Akun</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="<?= $url . '/' ?>vendors/feather/feather.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?= $url . '/' ?>css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="<?= $url . '/' ?>images/favicon.png" />
+  <link rel="stylesheet" href="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
+  <script src="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -75,6 +91,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+<<<<<<< Updated upstream
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="<?= $url . '/' ?>/template/vendors/js/vendor.bundle.base.js"></script>
@@ -87,6 +104,14 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
   <script src="<?= $url . '/' ?>/template/js/template.js"></script>
   <script src="<?= $url . '/' ?>/template/js/settings.js"></script>
   <script src="<?= $url . '/' ?>/template/js/todolist.js"></script>
+=======
+  <script src="<?= $url . '/' ?>/vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?= $url . '/' ?>/js/off-canvas.js"></script>
+  <script src="<?= $url . '/' ?>/js/hoverable-collapse.js"></script>
+  <script src="<?= $url . '/' ?>/js/template.js"></script>
+  <script src="<?= $url . '/' ?>/js/settings.js"></script>
+  <script src="<?= $url . '/' ?>/js/todolist.js"></script>
+>>>>>>> Stashed changes
   <!-- endinject -->
 </body>
 

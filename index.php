@@ -49,7 +49,7 @@ $jumlah_barang = $row['jumlah_barang'];
             <!-- Admin-specific content here -->
         <?php endif ?>
         <div class="row">
-            <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="col-md-6 mb-4 stretch-card transparent" onclick="window.location.href='<?= $url . '/' ?>penempatan/lihat_data_penempatan.php';" style="cursor: pointer;">
                 <div class="card card-light-blue">
                     <div class="card-body">
                         <p class="mb-4">Jumlah Barang :</p>
