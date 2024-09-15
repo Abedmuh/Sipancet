@@ -4,6 +4,7 @@
 <?php require_once('../component/header.php') ?>
 <?php require_once('../component/navbar.php') ?>
 <?php require_once('../component/sidebar.php') ?>
+
 <?php
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];

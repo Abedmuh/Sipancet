@@ -21,6 +21,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     <link rel="shortcut icon" href="<?= $url . '/' ?>aset/favicon.png" />
     <link rel="stylesheet" href="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.css">
     <script src="<?= $url . '/' ?>vendors/sweetalert-2.11.1.7/dist/sweetalert2.min.js"></script>
+
 </head>
 
 <body>
