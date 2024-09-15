@@ -6,7 +6,9 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
 </div>
 </div>
 <!-- content-wrapper ends -->
+
 <!-- partial:../template/partials/_footer.html -->
+
 <footer class="footer">
     <div class="d-sm-flex justify-content-center justify-content-sm-between">
         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024.
@@ -23,6 +25,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
+
 <script src="<?= $url . '/' ?>/template/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
@@ -40,6 +43,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
 <script src="<?= $url . '/' ?>/template/js/file-upload.js"></script>
 <script src="<?= $url . '/' ?>/template/js/typeahead.js"></script>
 <script src="<?= $url . '/' ?>/template/js/select2.js"></script>
+
 <!-- End custom js for this page-->
 </body>
 

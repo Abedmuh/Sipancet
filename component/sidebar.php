@@ -18,16 +18,15 @@ if (substr($url_sekarang, strlen($url_sekarang) - 1, 1) == '/') {
         <?php if ($_SESSION['jabatan'] == 'admin') : ?>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                    <i class="icon-head menu-icon"></i>
+                    <i class="icon-book menu-icon"></i>
                     <span class="menu-title">Penempatan</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="form-elements">
                     <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" href="<?= $url . '/' ?>penempatan/input_data_penempatan.php">Input Data</a> </li>
                         <li class="nav-item"><a class="nav-link" href="<?= $url . '/' ?>penempatan/lihat_data_penempatan.php">Lihat Data</a> </li>
-                        <li class="nav-item"><a class="nav-link" href="<?= $url . '/' ?>penempatan/input_data_penempatan.php">Input
-                                Data</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="<?= $url . '/' ?>penempatan/lihat_data_utuh_penempatan.php">Lihat Data Utuh</a> </li>
                     </ul>
                 </div>
             </li>

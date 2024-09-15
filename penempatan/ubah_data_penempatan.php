@@ -1,7 +1,7 @@
 <title>Ubah Data Penempatan</title>
 <?php require_once('../middleware_admin.php') ?>
 <?php require_once('../koneksi.php') ?>
-<?php require_once('../header.php') ?>
+<?php require_once('../component/header.php') ?>
 <?php
 $koneksi = new Koneksi();
 $id = $_GET['id'];
@@ -39,8 +39,8 @@ if (isset($_POST['submit'])) {
     echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil diubah', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
 }
 ?>
-<?php require_once('../navbar.php') ?>
-<?php require_once('../sidebar.php') ?>
+<?php require_once('../component/navbar.php') ?>
+<?php require_once('../component/sidebar.php') ?>
 <div class="card shadow overflow-hidden">
     <div class="card-body">
         <h4 class="card-title"><i class="fa fa-fw fa-edit"></i>&nbsp; Ubah Data Penempatan</h4>
@@ -244,4 +244,4 @@ if (isset($_POST['submit'])) {
         <?php endif ?>
     </div>
 </div>
-<?php require_once('../footer.php') ?>
+<?php require_once('../component/footer.php') ?>

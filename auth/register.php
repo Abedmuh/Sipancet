@@ -13,6 +13,8 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Buat Akun</title>
   <!-- plugins:css -->
+
+
   <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/feather/feather.css">
   <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="<?= $url . '/' ?>template/vendors/css/vendor.bundle.base.css">
@@ -98,6 +100,7 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1];
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+
   <script src="<?= $url . '/' ?>/template/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?= $url . '/' ?>/template/js/off-canvas.js"></script>
   <script src="<?= $url . '/' ?>/template/js/hoverable-collapse.js"></script>
