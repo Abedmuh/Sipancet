@@ -107,14 +107,14 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
     function hapus(id, nama) {
         Swal.fire({
             title: 'Apa anda yakin?',
-            html: `Menghapus data penempatan <b>${nama}</b> akan menghapus seluruh kategori di dalamnya`,
+            html: `Menghapus data penempatan <b>${id}</b> akan menghapus seluruh kategori di dalamnya`,
             icon: 'warning',
             showDenyButton: true,
             confirmButtonText: 'Ya',
             denyButtonText: 'Tidak'
         }).then((res) => {
             if (res.isConfirmed) {
-                window.location = `hapus_data_penempatan.php?id=${id}&nama=${encodeURIComponent(nama)}`;
+                window.location = `hapus_data_penempatan.php?id=${encodeURIComponent(id)}`;
             }
         });
     }
