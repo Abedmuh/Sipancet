@@ -26,7 +26,6 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                     <tr>
 
                         <th>Nama Barang</th>
-                        <th>Tahun Perolehan</th>
                         <th>Kode Aset</th>
                         <th>Kode Telkom</th>
                         <th>Gambar</th>
@@ -38,7 +37,6 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                         <tr>
 
                             <td><?= $penempatan['nama_barang'] ?></td>
-                            <td><?= $penempatan['tahun_perolehan'] ?></td>
                             <td><?= $penempatan['kode_aset'] ?></td>
                             <td><?= $penempatan['kode_telkom'] ?></td>
                             <td>

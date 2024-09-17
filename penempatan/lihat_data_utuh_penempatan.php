@@ -26,16 +26,15 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                     <tr>
 
                         <th>Nama Barang</th>
-                        <th>Tahun Perolehan</th>
-                        <th>Grup</th>
-                        <th>Kategori</th>
-                        <th>Kelas</th>
-                        <th>Sub Kelas</th>
-                        <th>Nomor Urut</th>
                         <th>Kode Aset</th>
                         <th>QR Code</th>
                         <th>Kode Telkom</th>
                         <th>Serial Number</th>
+                        <th>Lokasi</th>
+                        <th>Keterangan</th>
+                        <th>Kondisi</th>
+                        <th>Status</th>
+                        <th>Pelabuhan</th>
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
@@ -45,16 +44,15 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
                         <tr>
 
                             <td><?= $penempatan['nama_barang'] ?></td>
-                            <td><?= $penempatan['tahun_perolehan'] ?></td>
-                            <td><?= $penempatan['grup'] ?></td>
-                            <td><?= $penempatan['kategori'] ?></td>
-                            <td><?= $penempatan['kelas'] ?></td>
-                            <td><?= $penempatan['sub_kelas'] ?></td>
-                            <td><?= $penempatan['nomor_urut'] ?></td>
                             <td><?= $penempatan['kode_aset'] ?></td>
                             <td><?= $penempatan['qr_code'] ?></td>
                             <td><?= $penempatan['kode_telkom'] ?></td>
                             <td><?= $penempatan['serial_number'] ?></td>
+                            <td><?= $penempatan['lokasi'] ?></td>
+                            <td><?= $penempatan['keterangan'] ?></td>
+                            <td><?= $penempatan['kondisi'] ?></td>
+                            <td><?= $penempatan['status'] ?></td>
+                            <td><?= $penempatan['pelabuhan'] ?></td>
                             <td>
                                 <a href="#" data-toggle="modal" data-target="#imageModal" data-image="foto/<?= $penempatan['foto'] ?>">
                                     <img src="foto/<?= $penempatan['foto'] ?>" alt="<?= $penempatan['foto'] ?>" style="width: 150px; height: auto; border-radius: 0;">
