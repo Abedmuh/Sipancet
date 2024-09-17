@@ -29,8 +29,11 @@ $url = "http://" . $_SERVER['HTTP_HOST'] . '/' . $uri[1] . '/' . $uri[2];
 <script src="<?= $url . '/' ?>/template/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
-<script src="<?= $url . '/' ?>/template/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-<script src="<?= $url . '/' ?>/template/vendors/select2/select2.min.js"></script>
+<script src="<?= $url . '/' ?>template/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+<script src="<?= $url . '/' ?>template/vendors/select2/select2.min.js"></script>
+<script src="<?= $url . '/' ?>template/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="<?= $url . '/' ?>template/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="<?= $url . '/' ?>template/js/dataTables.select.min.js"></script>
 <!-- End plugin js for this page -->
 <!-- inject:js -->
 <script src="<?= $url . '/' ?>/template/js/off-canvas.js"></script>

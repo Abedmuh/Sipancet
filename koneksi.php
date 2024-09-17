@@ -1,14 +1,29 @@
 <?php
+require_once 'vendor/autoload.php';
+
 class Koneksi
 {
-    private $host = "localhost";
-    private $user = "root";
-    private $password = "";
-    private $database = "asdp";
+    private $host;
+    private $user;
+    private $password;
+    private $database;
     private $conn;
 
     function __construct()
     {
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+
+        // echo 'DB_HOST: ' . getenv('DB_HOST') . '<br>';
+        // echo 'DB_USER: ' . getenv('DB_USER') . '<br>';
+        // echo 'DB_PASSWORD: ' . getenv('DB_PASSWORD') . '<br>';
+        // echo 'DB_DATABASE: ' . getenv('DB_DATABASE') . '<br>';
+
+        $this->host = 'localhost';
+        $this->user = 'root';
+        $this->password = '';
+        $this->database = 'asdp';
+
         $this->conn = $this->connection();
     }
 
@@ -70,4 +85,3 @@ class Koneksi
         mysqli_close($this->conn);
     }
 }
-?>

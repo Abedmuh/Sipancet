@@ -87,7 +87,6 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTable
         $('#penempatanTable').DataTable({
             "paging": true,
             "searching": true,
@@ -100,6 +99,7 @@ $listPenempatan = $koneksi->fetch_all_assoc($koneksi->query("SELECT * FROM `pene
             var button = $(event.relatedTarget); // Button that triggered the modal
             var imageSrc = button.data('image'); // Extract info from data-* attributes
             var modal = $(this);
+            console.log(imageSrc)
             modal.find('.modal-body #modalImage').attr('src', imageSrc);
         });
     });
