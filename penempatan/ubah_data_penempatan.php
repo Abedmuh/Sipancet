@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
     $pelabuhan = $_POST['pelabuhan'];
 
-    $koneksi->query("UPDATE penempatan SET nama_barang = '$nama_barang', tahun_perolehan = '$tahun_perolehan', grup = '$grup', kategori = '$kategori', kelas = '$kelas', sub_kelas = '$sub_kelas', nomor_urut = '$nomor_urut', kode_aset = '$kode_aset', qr_code = '$qr_code', kode_telkom = '$kode_telkom', serial_number = '$serial_number'" . ($foto ? ", foto = '$foto'" : "") . " WHERE id = '$id_lama'");
+    $koneksi->query("UPDATE penempatan SET nama_barang = '$nama_barang', kode_aset = '$kode_aset', qr_code = '$qr_code', kode_telkom = '$kode_telkom', serial_number = '$serial_number', lokasi = '$lokasi', keterangan = '$keterangan', kondisi = '$kondisi', status = '$status', pelabuhan = '$pelabuhan'" . ($foto ? ", foto = '$foto'" : "") . " WHERE id = '$id_lama'");
     echo "<script>Swal.fire('Berhasil', 'Data penempatan berhasil diubah', 'success').then(() => window.location = 'lihat_data_penempatan.php')</script>";
 }
 ?>
